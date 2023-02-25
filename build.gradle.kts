@@ -3,6 +3,7 @@ plugins {
 }
 
 terraform {
+    version = "1.3.9"
     sourceSets {
         all {
             executeApplyOnlyIf { true }
@@ -10,8 +11,8 @@ terraform {
         }
         main {
             srcDirs = mutableSetOf(project.file("k8s"))
-            lockFile = project.file("k8s/terraform.tfstate")
-            stateFile = project.file("k8s/.terraform.lock.hcl")
+            lockFile = project.file("k8s/.terraform.lock.hcl")
+            stateFile = project.file("k8s/terraform.tfstate")
         }
     }
 }
