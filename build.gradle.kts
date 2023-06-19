@@ -16,3 +16,17 @@ terraform {
         }
     }
 }
+
+tasks.register("start") {
+    dependsOn(":terraformApply")
+    doLast {
+        println("Start project")
+    }
+}
+
+tasks.register("stop") {
+    dependsOn(":terraformDestroy")
+    doLast {
+        println("Stop project")
+    }
+}

@@ -1,18 +1,16 @@
-terraform {
-  required_providers {
-    scaleway = {
-      source = "scaleway/scaleway"
-    }
-  }
-  required_version = ">= 0.13"
-}
-
-provider "scaleway" {
-
-}
-
 resource "null_resource" "k8s" {
   provisioner "local-exec" {
-    command = "ls"
+    command = "sudo -A microk8s start"
+    environment = {
+      SUDO_ASKPASS = "/usr/bin/ssh-askpass"
+    }
+  }
+
+  provisioner "local-exec" {
+    when    = destroy
+    command = "sudo -A microk8s stop"
+    environment = {
+      SUDO_ASKPASS = "/usr/bin/ssh-askpass"
+    }
   }
 }
