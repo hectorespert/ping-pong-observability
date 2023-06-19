@@ -8,3 +8,5 @@
  */
 
 rootProject.name = "ping-pong-observability"
+
+include("ping")
