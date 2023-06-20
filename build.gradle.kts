@@ -1,5 +1,11 @@
+buildscript {
+    dependencies {
+        "classpath"(group = "org.apache.httpcomponents.client5", name = "httpclient5", version = "5.2.1")
+    }
+}
+
 plugins {
-    id("org.jetbrains.gradle.terraform") version "1.5.2"
+    id("org.jetbrains.gradle.terraform") version "1.6.0-RC.5"
 }
 
 terraform {
